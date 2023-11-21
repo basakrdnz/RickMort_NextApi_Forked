@@ -10,7 +10,7 @@ interface JoinedPeople {
 const PeopleJoined = ({ title, morePeople }: JoinedPeople) => {
   return (
     <div
-      className={`absolute font-bold bottom-10 pl-7 flex flex-col bg-gradient-to-t from-red-500 via-yellow-500 to-green-500 -left-36  rounded-xl h-28 w-60 z-3`}
+      className={`absolute font-bold md:bottom-10 -bottom-20 -left-10 pl-7 flex flex-col bg-gradient-to-t from-red-500 via-yellow-500 to-green-500 md:-left-36   rounded-xl h-28 w-60 z-3`}
     >
       <Image
         src={"/Chart.png"}
@@ -45,12 +45,12 @@ const PeopleJoined = ({ title, morePeople }: JoinedPeople) => {
 
 const Hero = () => {
   return (
-    <section className="flex flex-col md:m-10 md:mx-20 md:p-10 container h-screen md:justify-around">
-      <div className="flex md:flex-row flex-col md:justify-around">
-        <div className="flex flex-col md:w-1/2 gap-10 p-10">
+    <section className="flex flex-col md:m-10 md:mx-20 md:p-10 container md:h-screen md:justify-around">
+      <div className="flex md:flex-row flex-col m-auto md:justify-around">
+        <div className="flex flex-col md:w-1/2 md:gap-10 gap-5 p-10 m-auto ">
           <div className="flex text-white">
             <p>Rick and Morty</p>
-            <div className="w-36 h-0 border border-white my-auto ml-3"></div>
+            <div className="md:w-36 h-0 border border-white my-auto ml-3"></div>
           </div>
           <h1 className="text-5xl font-bold tracking-widest">
             Rick, Morty'yi farklı evrenlere götürerek
@@ -62,7 +62,7 @@ const Hero = () => {
           </p>
           <Button title={"Bu deneyimi yaşa"} variant={"white"}></Button>
         </div>
-        <div className="h-[500px] w-96 relative bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 rounded-full">
+        <div className="md:h-[500px] md:w-96 h-[400px] w-80  m-auto my-20 relative bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 rounded-full">
           <div className="absolute rounded-full bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 w-28 h-28 mt-20 -ml-10 z-30">
             <Image
               src="/indir__2_-removebg-preview.png"
@@ -72,7 +72,7 @@ const Hero = () => {
               className="ml-4 mt-3"
             ></Image>
           </div>
-          <div className="absolute rounded-full bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 w-28 h-28 ml-64 -mt-5 z-30">
+          <div className="absolute rounded-full bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 w-28 h-28 ml-64 md:-mt-5 z-30">
             <Image
               src="/indir__3_-removebg-preview.png"
               alt={"heroimg2"}
@@ -80,7 +80,7 @@ const Hero = () => {
               height={180}
             ></Image>
           </div>
-          <div className="absolute rounded-full bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 w-28 h-28 mt-60 ml-80 z-30">
+          <div className="absolute rounded-full bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 w-28 h-28 mt-60 md:ml-80 ml-64 z-30">
             <Image
               src="/indir__4_-removebg-preview.png"
               alt={"heroimg3"}
@@ -88,19 +88,24 @@ const Hero = () => {
               height={180}
             ></Image>
           </div>
-          <div className="overflow-hidden rounded-full absolute top-20 ">
+          <div className="overflow-hidden rounded-full absolute md:top-20 top-10 ">
             <Image
               src="/Rick_And_Morty_Sticker-removebg-preview.png"
               alt={""}
               width={800}
-              height={1500}
+              height={1000}
             ></Image>
           </div>
-          <PeopleJoined title="10+ Karakterler" morePeople="5+"></PeopleJoined>
+          <div className="">
+            <PeopleJoined
+              title="10+ Karakterler"
+              morePeople="5+"
+            ></PeopleJoined>
+          </div>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row md:mt-10 md:gap-40 md:mx-40">
-        <div className="flex flex-col md:w-1/2 gap-5 ">
+      <div className="flex flex-col m-10 md:flex-row md:mt-10 md:gap-40 md:mx-40">
+        <div className="flex flex-col md:w-1/2 gap-8 ">
           <p className="text-orange-500">BURASI NERESİ?</p>
           <h1 className="text-4xl font-bold">Başak'ın disko temalı sitesi</h1>
           <div className="flex">

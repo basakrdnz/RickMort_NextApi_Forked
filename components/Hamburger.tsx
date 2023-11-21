@@ -2,7 +2,7 @@ const Hamburger = () => {
   return (
     <section id="hamburger">
       <div>
-        <button className="text-gray-700 hover:text-gray-900 focus:outline-none">
+        <button className="text-white hover:text-gray-900 focus:outline-none">
           <svg
             className="h-6 w-6"
             fill="none"

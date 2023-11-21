@@ -31,7 +31,7 @@ const cardVariants: Variants = {
 
 const Cards = ({ image, name, id, species, gender, api }: PocoCards) => {
   return (
-    <div className="flex mt-24 flex-col w-1/2 m-auto font-bold  bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 border-8 border-yellow-200 rounded-lg gap-5 justify-between p-4 cursor-pointer">
+    <div className="flex mt-24 flex-col md:w-1/2 m-auto font-bold  bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 border-8 border-yellow-200 rounded-lg gap-5 justify-between md:p-4 p-2 cursor-pointer">
       <div className="flex justify-between py-8 rounded-lg ">
         <div className="flex w-1 h-20 bg-blue-400 "></div>
         <div>{name} </div>
@@ -48,7 +48,7 @@ const Cards = ({ image, name, id, species, gender, api }: PocoCards) => {
         <div>{gender} </div>
       </div>
 
-      <div className="h-[0px] w-96 border-4 border-blue-400 mx-auto"></div>
+      <div className="h-[0px] md:w-96 w-40 border-4 border-blue-400 mx-auto"></div>
       <div className="flex justify-between">
         <div>ID: {id}</div>
         <Button title={"Select"} variant={"white"}></Button>
@@ -74,28 +74,28 @@ const Tutors = () => {
       className="container flex flex-col m-auto px-20 my-10"
     >
       <div>
-        <div id="upper_search_bar" className="flex justify-between mx-3">
-          <div className="flex w-3/5 h-16 rounded-md shadow-2xl bg-gradient-to-r from-red-500 via-yellow-500 to-green-500">
+        <div id="upper_search_bar" className="flex flex-col md:flex-row justify-between mx-3">
+          <div className="flex flex-col  md:flex-row gap-5 m-auto p-5 md:w-3/5 md:h-16 rounded-md shadow-2xl bg-gradient-to-r from-red-500 via-yellow-500 to-green-500">
             <Image
               src="/search_icon.png"
               alt={"search_icon"}
               width={10}
               height={20}
-              className="p-5 h-auto w-auto"
+              className="hidden p-5 h-auto w-auto"
             ></Image>
 
             <input
               type="text"
               placeholder="Karakter İsmi"
-              className="h-10 w-64 my-auto p-5 rounded-full"
+              className="h-10 w-64 my-auto p-5 md:-mt-2 rounded-full"
             />
-            <div className="flex h-6 w-0 border-2 my-auto ml-10"></div>
+            <div className="hidden md:flex h-6 w-0 border-2 my-auto ml-10"></div>
             <input
               type="text"
               placeholder="Bölüm İsmi"
-              className="h-10 w-64 m-auto p-5 rounded-full"
+              className="h-10 w-64 m-auto md:-mt-2 p-5 rounded-full"
             />
-            <div className="my-auto mr-4">
+            <div className="my-auto md:mr-4 md:-mt-2 m-auto">
               <Button
                 title={"Search"}
                 variant={"white"}
@@ -103,7 +103,7 @@ const Tutors = () => {
               ></Button>
             </div>
           </div>
-          <div className="flex relative bg-red-300 p-2 px-6 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500">
+          <div className="flex md:flex-row my-10 relative bg-red-300 p-2 md:px-6 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500">
             <select
               name="popular_lessons"
               id="popular_lessons"

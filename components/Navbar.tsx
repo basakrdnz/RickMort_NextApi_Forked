@@ -8,9 +8,9 @@ import Hamburger from "./Hamburger";
 const Navbar = () => {
   return (
     <section id="navbar">
-      <div className="flex justify-around p-5">
+      <div className="flex justify-around md:p-5 my-10">
         <Link href={"/"}>
-          <h1 className="font-bold mt-5 text-lg">MortyPortalı</h1>
+          <h1 className="font-bold md:mt-5 text-lg">MortyPortalı</h1>
         </Link>
         <ul className="my-auto hidden md:flex" id="navbar-default">
           {NAVBAR_LİNKS.map((link) => (
@@ -31,7 +31,7 @@ const Navbar = () => {
           <Hamburger></Hamburger>
         </div>
       </div>
-      <div className="w-[1500px] h-[0px] border border-stone-300 m-auto"></div>
+      <div className="md:w-[1500px] h-[0px] border border-stone-300 m-auto"></div>
     </section>
   );
 };
