@@ -71,7 +71,7 @@ const Tutors = () => {
   return (
     <section
       id="karakterler"
-      className="container flex flex-col m-auto px-20 my-10"
+      className="container flex flex-col m-auto md:px-20 px-2 md:my-10"
     >
       <div>
         <div id="upper_search_bar" className="flex flex-col md:flex-row justify-between mx-3">
@@ -134,7 +134,7 @@ const Tutors = () => {
           ))}
         </div>
       </div>
-      <div className="flex flex-col flex-wrap gap-6 justify-between">
+      <div className="flex flex-col flex-wrap md:gap-6 p-10 gap-2 justify-between">
         {isLoading ? (
           <div>Loading</div>
         ) : (
