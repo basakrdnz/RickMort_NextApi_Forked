@@ -1,6 +1,6 @@
 "use client";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { motion, Variants } from "framer-motion";
-
 import Button from "@/components/Button";
 import { FILTERS_FOR_LESSONS } from "@/constants";
 import Image from "next/image";
@@ -58,26 +58,16 @@ const Cards = ({ image, name, id, species, gender, api }: PocoCards) => {
 };
 
 const Tutors = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/rick/api/character");
-        const data = await response.json();
-        //sadece ilk 3 karakteri almak için
-        const firstThreeCharacters = data.results.slice(0, 10);
-        console.log(firstThreeCharacters);
-        setData(firstThreeCharacters);
-      } catch (error) {
-        // Handle errors here
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData(); // Call the async function immediately
-  }, []);
-
+  const { data, isLoading } = useQuery({
+    queryKey: ["/rick/api/character"],
+    queryFn: async () => {
+      const response = await fetch("/rick/api/character");
+      const data = await response.json();
+      return data.results.slice(0, 10);
+    },
+    refetchInterval:2000
+  });
+  console.log(data + "hda");
   return (
     <section
       id="karakterler"
@@ -145,26 +135,30 @@ const Tutors = () => {
         </div>
       </div>
       <div className="flex flex-col flex-wrap gap-6 justify-between">
-        {data.map((rickandmortyapi: any) => (
-          <motion.div
-            className="card-container"
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}
-          >
-            <div className="splash" />
-            <motion.div className="card" variants={cardVariants}>
-              <Cards
-                image={rickandmortyapi.image}
-                name={rickandmortyapi.name}
-                id={rickandmortyapi.id}
-                species={rickandmortyapi.species}
-                gender={rickandmortyapi.gender}
-                api={rickandmortyapi.url}
-              ></Cards>
+        {isLoading ? (
+          <div>Loading</div>
+        ) : (
+          data?.map((rickandmortyapi: any) => (
+            <motion.div
+              className="card-container"
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.8 }}
+            >
+              <div className="splash" />
+              <motion.div className="card" variants={cardVariants}>
+                <Cards
+                  image={rickandmortyapi.image}
+                  name={rickandmortyapi.name}
+                  id={rickandmortyapi.id}
+                  species={rickandmortyapi.species}
+                  gender={rickandmortyapi.gender}
+                  api={rickandmortyapi.url}
+                ></Cards>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        ))}
+          ))
+        )}
       </div>
     </section>
   );
